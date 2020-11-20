@@ -9,6 +9,6 @@ export default (App) => (selector, props={}) => {
         console.log('Svelte::App rendered', {target, App});
     }
     else {
-        console.error('Svelte::Taget not found', selector);
+        console.error('Svelte::Target not found', selector);
     }    
 } 
