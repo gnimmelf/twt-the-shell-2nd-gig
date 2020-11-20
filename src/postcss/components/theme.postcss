@@ -1,0 +1,87 @@
+/*
+Theme
+*/
+:root {
+    @extend %vars-root, %vars-events;
+}
+
+body {
+    @extend %vars-font;        
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+    @apply bg-fixed flex flex-col;
+
+    margin-top: var(--main-navigation-height);
+    min-height: calc(100vh - var(--main-navigation-height));
+    
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-weight-secondary-regular);
+    font-size: 19px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    word-break: break-word;
+
+    @screen sm {
+        @apply text-xl;
+    }
+
+    & a {
+        @apply underline z-50;
+        color: var(--link-color);
+        transition: color ease 0.3s;
+        &:hover {
+            color: var(--hover-color);
+        }
+    }
+
+    & h1, & h2, & h3 {
+        font-family: var(--font-family-primary);
+        font-weight: var(--font-weight-primary-regular);
+    }
+}
+
+/*
+Structure
+*/
+.container {
+    @apply mx-auto p-2 w-full;
+    max-width: var(--container-max-width);
+    & > section.header {
+        @apply block;
+        margin-left: calc(-0.5 * var(--container-flex-margin));
+        margin-right: calc(-0.5 * var(--container-flex-margin));
+    }
+    & > article, & > section.header {
+        @apply mx-auto px-2;
+        @screen sm {
+            @apply max-w-xl;
+        }  
+        @screen md {
+            @apply max-w-2xl;
+        }  
+        @screen lg {
+            @apply max-w-3xl;
+        }  
+    }
+}
+
+section.cards {
+    @apply inline-flex flex-wrap justify-center items-stretch;            
+    width: calc(100% - 2 * var(--container-flex-margin));
+    margin-left: var(--container-flex-margin);
+    margin-right: var(--container-flex-margin);
+    & > * {          
+        @apply py-4 px-3;                               
+        flex-basis: 100%; 
+        @screen sm {
+            flex-basis: 50%;                                      
+        }  
+        @screen lg {
+            flex-basis: 33%;
+        }  
+    }
+}
+
+main.container {   
+    @apply flex-grow;        
+}

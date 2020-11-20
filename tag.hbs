@@ -1,0 +1,11 @@
+{{!< default}}
+
+<section class="header">
+    {{#with tag}}
+        {{> card/tagcard}}
+    {{/with}}
+</section>
+
+<section class="cards">
+    {{> _loop/postcards}}
+</section>

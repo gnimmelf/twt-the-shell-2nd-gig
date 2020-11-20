@@ -1,0 +1,47 @@
+/*
+Main Navigation
+*/
+.main-navigation {    
+    @extend %vars-main-navigation;
+    @apply absolute left-0;    
+    & .nav-wrapper {
+        @apply fixed top-0 w-full border-b;
+        z-index: 60;
+        background-color: var(--bg-color);
+        height: var(--nav-height);
+        border-color: var(--border-color);
+    }
+    & nav {
+        @apply flex flex-row items-center justify-start mx-auto;       
+        height: var(--main-navigation-height);
+        & img {
+            @apply inline-block rounded-full;
+            background-color: var(--icon-bg-color);
+            height: var(--main-navigation-height);
+            transform: scale(.8);
+        }
+        & a {
+            @apply no-underline whitespace-no-wrap;            
+            color: var(--link-color);                        
+            &:hover {
+                color: var(--hover-color);
+            }
+        }
+        & .site-title {
+            @apply pr-2;            
+        }
+        & ul {
+            @apply flex flex-row items-center justify-center;
+            @apply overflow-x-auto;
+            height: var(--nav-height);
+            & > li {
+                @apply mx-1;                
+                &.nav-current > a::after {
+                    @apply ml-1;
+                    color: var(--hover-color);
+                    content: "*";
+                }
+            }
+        }
+    }
+}

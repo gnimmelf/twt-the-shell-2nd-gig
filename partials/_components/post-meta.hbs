@@ -1,0 +1,3 @@
+<time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time>
+<span class="reading-time"> - {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+<span class="tags">{{#has tags}} {{t "on"}} {{tags separator=" | "}}{{/has}}</span>

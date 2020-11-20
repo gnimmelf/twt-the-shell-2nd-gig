@@ -1,0 +1,64 @@
+/*
+Cards
+*/
+card.post, card.tag, card.author {
+    @extend %vars-card, %card-base;          
+    & > div {
+        @extend %misc-card-border-radius;    
+        @apply p-2;
+        color: var(--fg-color);
+        background-color: var(--bg-color);
+    }    
+}
+
+card.post, card.tag {
+    & .grid { 
+        @extend %layouts-card-01;
+    }
+}
+
+card.author, 
+section.header > card.tag {
+    & .grid { 
+        @extend %layouts-card-02;
+        & .thumbnail {
+            @apply w-full pr-3;
+            & > .aspect-box {
+                @extend %aspect-ratio-1-1;                
+            }            
+        }
+        & .text-container {
+            & a {
+                text-decoration: none;
+            }
+            & .meta.inline-items > *:not(:last-child)::after {
+                content: " | ";                
+            }
+        }
+    }
+}
+
+card.author .thumbnail > .aspect-box {
+    @apply rounded-full;
+}
+
+card.hero {     
+    &:first-of-type {
+        flex-grow: .7;
+    }
+    & > .frame {
+        @extend %misc-card-border-radius, %misc-bg-warning;
+        @apply p-2 h-full;
+        color: var(--fg-color);
+        background-color: var(--bg-color);
+    }
+    & .content {
+        @extend %vars-meta, %koenig-content, %misc-card-border-radius, %misc-card-border-radius;        
+        @apply p-2 h-full;
+        color: var(--fg-color);
+        background-color: var(--bg-color);
+    }
+    & h2 {
+        margin-top: 0;
+    }
+}

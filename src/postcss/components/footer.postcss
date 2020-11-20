@@ -1,0 +1,29 @@
+/*
+Footer
+*/
+.site-footer {  
+    @extend %vars-footer;
+    color: var(--fg-color);
+    background-color: var(--bg-color);    
+
+    @apply text-base py-5;    
+    & a {
+        color: var(--link-color);
+        &:hover {
+            color: var(--hover-color);
+        } 
+    }
+    & .container {
+        @apply flex flex-col items-center;
+        & > * {            
+            @apply flex-1 py-2;            
+        }    
+        & .ghost a {
+            @extend %icon-ghost;
+            @apply no-underline font-bold;
+            &:before {
+                @apply pr-1;
+            }                       
+        }
+    }
+}

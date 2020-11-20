@@ -1,0 +1,259 @@
+/* 
+Koenig content utility-classes
+
+This file contains the styles needed for the `{{content}}` output.
+https://ghost.org/docs/api/v3/handlebars-themes/editor/ 
+*/
+%koenig-content {    
+    & > * {
+        @apply mb-6;
+    }    
+    & a {
+        @apply no-underline;
+        border-bottom: 1px dashed;
+    }
+    & h2 {
+        @apply text-xl;
+        @screen md {
+            @apply text-4xl;
+        }
+    }
+    & h3 {
+        @apply text-lg;
+        @screen md {
+            @apply text-3xl;
+        }
+    }
+    & h4 {
+        @apply text-base;
+        @screen md {
+            @apply text-2xl;
+        }
+    }
+    & h5 {
+        @apply text-sm;
+        @screen md {
+            @apply text-xl;
+        }
+    }
+    & h6 {
+        @apply text-xs;
+        @screen md {
+            @apply text-lg;
+        }
+    }
+    /* List styles */
+    & ul, & ol {
+        list-style-type: none;
+        list-style-image: none;
+        text-indent: -0.8em;
+        margin-left: 1.2em;
+        @apply text-lg list-inside;
+        & > li {
+            @apply mb-2 !important;
+            & > * {
+                @apply mt-2 !important;
+            }
+        }
+        & li > p {
+            display: inline;            
+        }
+
+    }
+    & ul {
+        & > li {
+            &:before {
+                @apply pr-2;
+                content: var(--list-icon);                
+                color: var(--list-icon-color);
+            }
+        }
+    }
+    & ol {
+        counter-reset: my-awesome-counter;
+        & > li {
+            counter-increment: my-awesome-counter;
+            &::before {
+                content: counter(my-awesome-counter) ". ";            
+                /* Style away! (https://css-tricks.com/style-list-markers-css/) */
+                color: var(--list-icon-color);
+            }
+        }
+    }
+    & blockquote {
+        @apply pl-6 border-l-4 text-xl;
+        color: var(--block-quote-fg-color);
+        border-color: var(--block-quote-border-color);        
+        font-family: var(--font-family-primary);        
+    }
+    & pre {        
+        @apply rounded-lg p-3 overflow-x-auto;
+        color: var(--pre-fg-color);
+        background-color: var(--pre-bg-color);                
+    }  
+    & mark {
+        background-color: var(--mark-fg-color);
+        color: var(--mark-bg-color);
+    }         
+    /* 
+    Images and embeds (video etc) 
+    */
+    & figure.kg-card {
+        @apply w-full;
+        @apply flex flex-col;                
+        & > * {
+            @apply mx-auto;
+            &:first-child {
+                @apply rounded-lg overflow-hidden border;   
+                @apply self-center;
+            }
+        }
+        & figcaption {
+            @apply text-center text-sm mt-2;
+        }
+        @screen md {
+            /* https://css-tricks.com/full-width-containers-limited-width-parents/ */
+            &.kg-width-wide > *:first-child {
+                @apply max-w-screen min-w-full;
+                width: 62vw;
+                margin-left: -50vw;
+                margin-right: -50vw;
+            }
+            &.kg-width-full > *:first-child {
+                /* https://css-tricks.com/full-width-containers-limited-width-parents/ */                
+                @apply max-w-screen min-w-full;
+                width: 78vw;
+                margin-left: -50vw;
+                margin-right: -50vw;
+            }
+        }
+        /* 
+        image-card 
+        */
+        &.kg-image-card {
+            @apply relative;            
+            & .photo-credit {
+                @apply absolute text-xs p-3 cursor-pointer;
+                color: var(--fg-color);
+                background-color: var(--bg-color);
+                border-radius: 0px 10px;
+                top: 1px;
+                right: 1px;
+                &:not(.show) {
+                    & > * {
+                        @apply hidden;                    
+                    }
+                    &:before {
+                        content: "©";
+                    } 
+                }                                             
+            }             
+        }
+        /* 
+        embed-card 
+        */
+        &.kg-embed-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 100%;
+            & iframe {
+                max-width: 100%;
+            }
+        }        
+        /* 
+        gallery-card 
+        */
+        &.kg-gallery-card {
+            & .kg-gallery-container {
+                @apply flex flex-col;
+                background-color: var(--bg-color);
+                & .kg-gallery-row {
+                    @apply flex flex-row justify-center;
+                    &:not(:first-of-type) {
+                        margin: 0.75em 0 0 0;
+                    }
+                }
+                & .kg-gallery-image {
+                    &:not(:first-of-type) {
+                        margin: 0 0 0 0.75em;
+                    }
+                    & img {
+                        @apply block m-0 w-full h-full;
+                    }
+
+                }
+            }
+        }        
+        /* 
+        bookmark-card 
+        */
+        &.kg-bookmark-card {
+            & a.kg-bookmark-container {
+                @apply no-underline flex flex-col;           
+                @apply border border-solid;
+                color: var(--link-color);
+                background-color: var(--bg-color); 
+                &:hover {
+                    color: var(--hover-color)
+                }
+                & .kg-bookmark-content {
+                    order: 2;
+                    @apply p-2;                    
+                    & .kg-bookmark-title {                                                
+                        @apply text-xl;
+                    }                                   
+                    & .kg-bookmark-description {
+                        @apply text-sm;
+                    }
+                    & .kg-bookmark-metadata {
+                        @apply flex text-lg mt-2;
+                        & > * {
+                            @apply mr-2 my-2;
+                        }
+                        & img.kg-bookmark-icon {
+                            height: 20px;
+                            width: 20px;
+                            @apply align-middle;
+                        }
+                        & .kg-bookmark-author {
+                            @apply text-base;
+                            &:after {
+                                content: "•";
+                                @apply mx-1;
+                            }
+                        }
+                        & .kg-bookmark-publisher {
+                            @apply text-base;
+                        }
+                    }
+                }
+                & .kg-bookmark-thumbnail {                        
+                    order: 1;                                     
+                    & img {
+                        @apply object-cover align-bottom w-full h-full;
+                    }
+                }
+                @screen md {
+                    @apply flex-row;
+                    & .kg-bookmark-content {
+                        order: 1;
+                        flex: 0 1 70%;
+                    }
+                    & .kg-bookmark-thumbnail {  
+                        order: 2;                        
+                        flex: 0 1 30%;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    /* 
+    Active anchor
+    */
+    & :target {
+        color: var(--link-color);
+        background-color: var(--bg-color);
+    }
+}

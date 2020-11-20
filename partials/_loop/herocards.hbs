@@ -1,0 +1,5 @@
+{{#get "pages" limit="5" filter="featured:true+tag:hash-herocard" order="title asc"}}
+    {{#foreach pages}}
+        {{> card/herocard}}
+    {{/foreach}}
+{{/get}}

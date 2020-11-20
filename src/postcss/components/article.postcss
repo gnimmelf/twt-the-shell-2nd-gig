@@ -1,0 +1,46 @@
+/*
+Post
+*/
+.post-container {
+    @extend %vars-card, %misc-card-border-radius;
+    color: var(--fg-color);
+    background-color: var(--bg-color);    
+    @apply p-2;
+    & .meta {
+        @extend %misc-meta;
+        @apply text-sm;        
+    }    
+    & h1 {
+        @apply mt-3 text-2xl;
+        @screen md {                
+            @apply text-5xl;
+        }
+    }
+    & .featured-image {
+        @apply mb-5;
+        & aspect-box {
+            @extend %aspect-ratio-16-9;        
+            @apply rounded-lg;
+        }
+        & figcaption {
+            @apply text-right text-xs;
+        }
+    }  
+    & section.koenig-content {
+       @extend %vars-koenig-content, %koenig-content; 
+    }
+    & h1, & h2, & h3 {        
+        color: var(--heading-color);        
+    }
+    & h4, & h5, & h6 {
+        
+    }
+    & footer.meta {                
+        @apply text-center;
+        &:before {
+            content: "***";
+            @apply block text-2xl;
+            color: var(--article-endmark-color);
+        }
+    }
+}

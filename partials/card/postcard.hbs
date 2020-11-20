@@ -1,0 +1,25 @@
+<card class="{{post_class}}">
+
+    {{#> _templates/card}}
+
+        {{#* inline "meta-slot"}}
+            {{> _components/post-meta}}    
+        {{/ inline}}
+
+        {{#* inline "header-slot"}}
+            {{#if featured}}
+                {{> _components/post-featured}}    
+            {{/if}}
+            <a href="{{url}}">
+                {{title}}
+            </a>
+        {{/ inline}}
+
+        {{#* inline "text-container-slot"}}
+            {{excerpt words="33"}}
+            {{> _components/read-more}}
+        {{/ inline}}
+
+    {{/ _templates/card}}
+
+</card>

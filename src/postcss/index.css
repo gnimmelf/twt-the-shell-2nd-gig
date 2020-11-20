@@ -1,0 +1,31 @@
+/* Tailwind */
+/* purgecss start ignore */
+@import "tailwindcss/base";
+/* purgecss end ignore */
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* CSS Custom properties*/
+
+@import "/vars.postcss";
+
+/* Extension functionals (ORDER MAY BE IMPORTANT!) */
+
+@import "_functionals/icon.postcss";
+@import "_functionals/misc.postcss";
+@import "_functionals/aspect-ratio.postcss";
+@import "_functionals/koenig-content.postcss";
+@import "_functionals/card-base.postcss";
+@import "_functionals/layouts.postcss";
+
+/* Components (ORDER SHOULD NOT BE IMPORTANT!) */
+
+@import "components/theme.postcss";
+@import "components/main-header.postcss";
+@import "components/main-navigation.postcss";
+@import "components/pagination.postcss";
+@import "components/footer.postcss";
+@import "components/cards.postcss";
+@import "components/article.postcss";
+@import "components/form.postcss";
+@import "components/body-decorations.postcss";

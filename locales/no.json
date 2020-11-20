@@ -1,0 +1,22 @@
+{
+    "Home": "Hjem",
+    "Tags": "Emner",
+    "Tag": "Emne",
+    "on": "om",
+    "Read More": "Les mer",
+    "1 min read": "1 min lesing",
+    "% min read": "% min lesing",
+    "see all": "se alle",
+    "Written by": "Skrevet av",
+    "Read {morePosts} by this author": "Les {morePosts} av denne skribenten",
+    "more posts": "flere poster",
+    "To let their work speak for itself, {name} has not written a bio": "For å la arbeidet sitt snakker for seg, har {name} ikke skrevet noe her",
+    "Location": "Sted",
+    "Website": "Nettside",    
+    "of posts by": "med poster av",
+    "page": "side",
+    "hasn’t published any posts yet": "har ikke publisert noe enda",
+    "has published <strong>1 post</strong>": "har publisert <strong>1 post</strong>",
+    "has published <strong>% posts</strong>": "har publisert <strong>% poster</strong>",
+    "Posts about {tagName} stuff": "Poster om {tagName} saker"
+}

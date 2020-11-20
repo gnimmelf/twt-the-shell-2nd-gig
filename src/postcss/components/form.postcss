@@ -1,0 +1,60 @@
+/*
+Form
+*/
+.form {        
+    & input {
+        border-color: var(--fg-color);
+        
+        @apply border-2 rounded-lg p-1;
+        &.error {
+            color: var(--error-color);
+            border-color: var(--error-color);
+        }
+    }    
+    & button {    
+        background-color: var(--success-color);
+        color: var(--on-success-color); 
+        border-color: var(--on-success-color);   
+
+        @apply rounded-lg py-1 px-3;
+        @apply border;
+        &:disabled {   
+            background-color: var(--disabled-color);
+            color: var(--on-disabled-color);
+            border-color: var(--on-disabled-color);    
+            cursor: not-allowed;
+        }
+        &:hover {
+            color: var(--hover-color);
+            border-color: var(--hover-color);    
+        }
+    }
+    & .required {
+        color: var(--warning-color);
+        &.error {
+            color: var(--error-color);            
+            border-color: var(--on-error-color);
+        }
+    }
+    & .feedback {
+        @apply text-center;        
+        & > .success {     
+            @apply border-2 rounded-lg p-3;       
+            background-color: var(--success-contrast-color);
+            color: var(--on-success-color);
+            border-color: var(--on-success-color);  
+        }
+        & > .processing {
+            @apply border-2 rounded-lg p-3;
+            background-color: var(--warning-color);
+            color: var(--on-warning-color);
+            border-color: var(--on-warning-color);  
+        }
+        & > .error {
+            @apply border-2 rounded-lg p-3;
+            background-color: var(--error-color);
+            color: var(--on-error-color);
+            border-color: var(--on-error-color);  
+        }
+    }
+}

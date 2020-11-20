@@ -1,0 +1,33 @@
+<article class="post-container {{post_class}}">
+
+    {{#post}}
+
+    <header class="header">
+
+        {{#> meta-slot}}
+        <div class="meta">
+            {{> _components/post-meta}}
+        </div>
+        {{/ meta-slot}}
+
+        {{#if feature_image}}
+        <div class="featured-image">
+            <aspect-box>
+                <img src="{{img_url feature_image}}" alt="{{title}}" />
+            </aspect-box>
+            <figcaption id="featured-figcaption"><!-- Insert by JS from koenig content --></figcaption>
+        </div>
+        {{/if}}
+
+        <h1 class="title">{{title}}</h1>
+    </header>
+
+    <section class="koenig-content">
+        {{content}}
+    </section>
+
+    {{#> footer-slot}}{{> _components/post-footer}}{{/ footer-slot}}
+
+    {{/post}}
+
+</article>

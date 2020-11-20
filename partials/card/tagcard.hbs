@@ -1,0 +1,30 @@
+<card class="tag">
+
+    {{#> _templates/card}}
+
+        {{#* inline "meta-slot"}}{{/ inline}}
+
+        {{#* inline "header-slot"}}
+            <a href="{{url}}">
+                {{name}}
+                <span class="whitespace-no-wrap">- 
+                {{#get "posts" filter="tags:{{slug}}"}}
+                    {{plural pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}
+                {{/get}}</span>
+            </a>
+        {{/ inline}}
+
+
+        {{#* inline "text-container-slot"}}
+            {{#if description}}
+                <p>{{description}}</p>
+            {{else}}
+                <p>{{ t "Posts about {tagName} stuff" tagName=name }}</p>
+            {{/if}}
+               
+            {{> _components/read-more label='see all'}}           
+        {{/ inline}}
+
+    {{/ _templates/card}}
+
+</card>

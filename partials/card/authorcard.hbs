@@ -1,0 +1,47 @@
+<card class="author">
+
+    {{#> _templates/card}}
+
+        {{#* inline "meta-slot"}}
+            {{#if location}}
+            <span class="meta">
+                <span class="location">{{location}}</span>
+            </span>
+            {{else}}
+                {{ t "Author" }}
+            {{/if}}
+        {{/ inline}}
+
+        {{#* inline "thumbnail-slot"}}
+            {{#if profile_image}}
+            <img src="{{img_url profile_image size="s"}}" alt="{{name}}" />
+            {{else}}
+            <img src="{{@site.logo}}" alt="{{title}}" />
+            {{/if}}
+        {{/ inline}}
+
+        {{#* inline "header-slot"}}
+            <span class="whitespace-no-wrap">{{name}}</span>
+        {{/ inline}}
+
+        {{#* inline "text-container-slot"}}
+
+            <span class="meta inline-items">
+                <span class="posts"><a href="{{url}}">{{ t "Posts" }}</a></span>
+                <span class="rss"><a target="_blank" href="{{url}}rss">RSS feed</a></span>
+                {{#if website}}<span class="website"><a target="_blank" href="{{website}}">{{website}}</a></span>{{/if}}
+                {{#if twitter}}<span class="twitter"><a  target="_blank" href="{{twitter_url}}">Twitter</a></span>{{/if}}
+                {{#if facebook}}<span class="facebook"><a  target="_blank" href="{{facebook_url}}">Facebook</a></span>{{/if}}
+            </span>
+            
+            {{#if bio}}
+                <p class="bio">{{bio}}</p>
+            {{else}}
+                <p class="bio">{{ t "To let the work speak for itself, {name} has not written a bio" name=name}}.</p>
+            {{/if}}
+
+        {{/ inline}}
+
+    {{/ _templates/card}}    
+
+</card>

@@ -1,0 +1,41 @@
+/*
+Misc utility-classes
+*/
+%misc-bg-warning {
+    /* Placeholder for dev */
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(theme("colors.events.warning"), 0.5),
+        rgba(theme("colors.events.warning"), 0.5) 10px,
+        rgba(theme("colors.events.error"), 0.5) 10px,
+        rgba(theme("colors.events.error"), 0.5) 20px
+    );
+}
+
+%misc-warning {
+    @apply bg-no-repeat bg-contain bg-center;
+    background-image: svg-load("../svg/warning.svg", fill= theme("colors.events.warning"));
+}
+
+%misc-featured {
+    @extend %vars-featured;
+    color: var(--fg-color);
+}
+
+%misc-meta {
+    @extend %vars-meta;
+    color: var(--fg-color);
+    & a {
+        color: var(--link-color);
+        &:hover {
+            color: var(--hover-color);
+        }
+    }
+    & > * {
+        @apply whitespace-no-wrap;
+    }
+}
+
+%misc-card-border-radius {
+    border-radius: 10px;
+}

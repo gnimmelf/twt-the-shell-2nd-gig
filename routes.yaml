@@ -1,0 +1,21 @@
+routes:
+  /:
+    controller: channel
+    order: featured desc, published_at desc
+
+  /tags/:
+    permalink: /tags/      
+    template: tags  
+
+  /authors/:
+    permalink: /authors/      
+    template: authors  
+
+collections:
+  /:
+    permalink: /{slug}/
+    template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

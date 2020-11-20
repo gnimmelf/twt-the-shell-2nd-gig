@@ -1,0 +1,48 @@
+/*
+Card layout classes
+*/
+%layouts-card-01 {       
+    display: grid;
+    grid-template-columns: 25% 75%;  
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:                 
+        "thumbnail thumbnail"
+        "meta meta"
+        "header header"
+        "text text";        
+    & .meta {
+        grid-area: meta;
+    }
+    & .header {
+        grid-area: header;
+    }
+    & .thumbnail {
+        grid-area: thumbnail;                    
+    }
+    & .text-container {                
+        grid-area: text;        
+    }       
+} 
+
+%layouts-card-02 {       
+    display: grid;
+    grid-template-columns: 25% 75%;  
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:                 
+        "thumbnail meta"
+        "thumbnail header "
+        "thumbnail text"
+        "thumbnail text";        
+    & .meta {
+        grid-area: meta;
+    }
+    & .header {
+        grid-area: header;
+    }
+    & .thumbnail {
+        grid-area: thumbnail;                    
+    }
+    & .text-container {                
+        grid-area: text;        
+    }       
+} 

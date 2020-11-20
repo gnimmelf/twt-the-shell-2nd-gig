@@ -1,0 +1,35 @@
+<section class="main-header">
+
+    {{#if @site.cover_image}}
+    <div class="cover-image">
+        <img src="{{img_url @site.cover_image size="xl"}}"
+            srcset="{{img_url @site.cover_image size='s'}} 320w,
+              {{img_url @site.cover_image size='m'}} 640w,
+              {{img_url @site.cover_image size='l'}} 960w,
+              {{img_url @site.cover_image size='xl'}} 1920w"
+            alt="{{@site.title}}" />
+    </div>
+    {{/if}}
+
+    <header>
+
+        {{#if @site.logo}}
+        <div class="logo">
+            <a href="{{@site.url}}">
+                <img src="{{@site.logo}}" alt="{{@site.title}} Logo" />
+            </a>
+        </div>
+        {{/if}}
+
+        <div class="text-container">
+            <h1 class="site-title">
+                <a href="{{@site.url}}">{{@site.title}}</a>
+            </h1>
+            {{#if @site.description}}
+            <h2 class="site-description">{{@site.description}}</h2>
+            {{/if}}
+        </div>
+
+    </header>
+
+</section>

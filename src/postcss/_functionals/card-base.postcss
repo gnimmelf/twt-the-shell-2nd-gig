@@ -1,0 +1,50 @@
+/*
+Card utility-classes
+*/
+%card-base {
+    & h2 {
+        @apply text-2xl mt-3;
+        @screen sm {
+            @apply text-4xl;
+        }
+        & a {
+            @apply no-underline;            
+        }
+    }
+    & .meta {
+        @extend %misc-meta;
+        @apply text-sm;
+        & .tags {
+            @apply block;
+        }
+    }
+    & .featured {
+        @extend %misc-featured;
+    }
+    & .thumbnail {
+        @apply w-full mb-3;
+        & > .aspect-box {
+            @extend %aspect-ratio-16-9;
+            @apply rounded-lg;
+            & img {
+                transition: all 0.3s;
+                transform: scale(1);
+                &:hover {
+                    transform: scale(1.075);
+                }
+            }
+        }
+        & .no-image {
+            @extend %misc-warning;
+        }
+    }
+    & .text-container {
+
+    }
+    & .read-more {
+        @extend %misc-meta;
+        & a {
+            @apply no-underline;
+        }
+    }
+}
